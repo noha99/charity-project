@@ -1,0 +1,26 @@
+<div class="userDetails">
+  <h2>User <i class="fa fa-info"></i>nfo</h2>
+
+  <table class="table table-bordered">
+    <tr>
+      <td><i class="fa fa-key"></i>Id</td>
+      <td>{{user.id}}</td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-user"></i>User Name</td>
+      <td>{{user.name}}</td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-envelope"></i>Email</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-shield"></i>Admin/User</td>
+      <td>{{user.type}}</td>
+    </tr>
+
+  </table>
+  <br>
+  <a class="btn btn-small btn-warning" (click)="editBook()">edit</a>
+  <a class="btn btn-small btn-danger" (click)="deleteUser()"> delete</a>
+</div>

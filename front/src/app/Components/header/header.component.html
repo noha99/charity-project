@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      <div class="navbar-brand">
+        <div class="navbar-logo">
+          <img alt="Brand" src="assets/logo.png" routerLink="/home">
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-menu" id="open-navbar1">
+      <ul class="navbar-nav">
+<!--        <li><p-button routerLink="/pages/main" fragment="dv">Get Started</p-button></li>-->
+
+        <li *ngIf="_login.Type == 'admin'"
+            routerLinkActive="active"><a routerLink="/admin">Dashboard</a></li>
+
+        <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+        <li routerLinkActive="active"><a routerLink="/pages/donation">Donation</a></li>
+        <li routerLinkActive="active"><a routerLink="/pages/projects">Projects</a></li>
+        <li routerLinkActive="active"><a routerLink="/pages/cases">Cases</a></li>
+        <li *ngIf="!_login.IsLogin()"
+            routerLinkActive="active"><a routerLink="/register/signup">Sign In</a></li>
+      </ul>
+    </div>
+
+    <div class="row mr-2 ml-auto">
+      <ul>
+        <li>
+          <span *ngIf="_login.IsLogin()" style=" display: flex">
+          <button class="user mt-2 d-flex align-items-center" mat-button>
+            <img alt="account image" class="user-image mr-1 p-2" src="https://wallpapercave.com/wp/wp9280849.jpg">
+            Welcome {{_login.FullName }}
+          </button>
+          <button class="user mt-2 d-flex align-items-center" mat-button
+                  (click)="HandleLogOut($event)">
+            <mat-icon>exit_to_app</mat-icon>
+            log out
+          </button>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

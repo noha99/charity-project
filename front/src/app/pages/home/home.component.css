@@ -1,0 +1,28 @@
+.container-fluid.body-content {
+  position: absolute;
+  top: 90px;
+  padding: 0;
+  bottom: 0px;
+  overflow-y: auto;
+}
+
+.card{
+  margin: 1rem 12rem;
+  border-radius: 20px;
+  border: 0;
+}
+
+img{
+    border-radius: 20px;
+}
+
+.btn{
+  padding: 5px;
+    margin: 0 5px;
+}
+
+.text{
+  /* background: #bec8caab; */
+  background-image: linear-gradient(to bottom right, #fff ,#bec8caab);
+
+}

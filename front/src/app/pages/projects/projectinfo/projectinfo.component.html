@@ -1,0 +1,32 @@
+<div class="card">
+
+  <div>
+    <button type="button" class="btn btn-outline-danger" (click)="toProjects()">back to projects</button>
+    <br>
+    <br>
+    <i class="pi pi-tag product-category-icon"></i>
+    <span class="product-category">{{project.category}}</span>
+    <br>
+  </div>
+  <div class="product-list-item">
+    <h1 class="product-name">{{project.title}}</h1>
+    <img [src]="project.image" [alt]="project.title">
+    <div class="product-description">{{project.details}}</div>
+
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [style.width]="percentage" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-6" style="text-align: start;">
+        <span class="product-price">Donation = {{project.donation}} $</span>
+      </div>
+      <div class="col-6" style="text-align: end;">
+        <span class="product-price">AmountNeeded = {{project.amountNeeded}} $</span>
+      </div>
+    </div>
+    <h3 class="product-price">{{project.place}}</h3>
+
+  </div>
+</div>
+<app-donate></app-donate>

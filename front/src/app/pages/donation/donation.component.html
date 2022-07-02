@@ -1,0 +1,78 @@
+<div class="content-body">
+  <div class="row info">
+    <div class="card glob">
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th colspan="2">BANK INFORMATION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>BANK NAME</td>
+          <td>DFCU Bank, Kampala, Uganda</td>
+        </tr>
+        <tr>
+          <td>COMPANY</td>
+          <td>Awtad Charitable Organisation</td>
+        </tr>
+        <tr>
+          <td>SWIFT/BIC</td>
+          <td>DFCUUGKA</td>
+        </tr>
+        <tr>
+          <td>ACCOUNT NUMBER</td>
+          <td>02983501000640</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+    <div *ngIf="first_step">
+      <div class="row" style="margin: 0 17%;">
+        <div class="card box">
+          <label>Choose an amount to give</label>
+          <div style="margin: -1px -20px;" class="p-inputgroup">
+            <span class="p-inputgroup-addon">$</span>
+            <input type="text" pInputText placeholder="Amount" [(ngModel)]="Amount">
+          </div>
+        </div>
+
+        <div class="card">
+          <label>Select a project</label>
+          <p-listbox [style.margin]="'-1px -20px'" [options]="projects" [(ngModel)]="selectedProject" [metaKeySelection]="false" [checkbox]="true" [filter]="true" optionLabel="name" >
+            <ng-template let-project pTemplate="item">
+              <div class="country-item">
+                <div>{{project.title}}</div>
+              </div>
+            </ng-template>
+          </p-listbox>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="sec_step">
+      <div class="row" style="margin: 0 17%;">
+        <div class="card box">
+          <label>Enter your details</label>
+          <div style="margin: -1px -20px;" class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText placeholder="Name on Card" [(ngModel)]="Name">
+          </div>
+          <div style="margin: -1px -20px;" class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-credit-card"></i></span>
+            <input type="text" pInputText placeholder="Card Number" [(ngModel)]="CardNum">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="submit">
+    <button pButton type="button" label="Donate" class="p-button-danger" style="width: 100%" (click)="(first_step)?handleFirstClick():handleClick()"></button>
+  </div>
+   <app-footer class="footer"></app-footer>
+</div>

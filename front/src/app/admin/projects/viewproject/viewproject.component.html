@@ -1,0 +1,55 @@
+<div class="col-12">
+  <div class="product-list-item">
+    <img [src]="project.image" [alt]="project.title">
+    <p-scrollPanel [style]="{ width: '100%', height: '400px'}" styleClass="custom">
+      <div class="text">
+        <div class="product-name">{{project.title}}</div>
+        <div class="product-description">{{project.details}}</div>
+      </div>
+    </p-scrollPanel>
+  </div>
+<!--  <p-rating [ngModel]="project.rating" [readonly]="true" [cancel]="false"></p-rating>-->
+<!--  <span class="product-price">${{project.price}}</span>-->
+</div>
+
+<!--<div class="bookDetails">-->
+<!--  <h2>Book Details</h2>-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <td>Book Id</td>-->
+<!--    <td>{{book.id}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Title</td>-->
+<!--    <td>{{book.title}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Author</td>-->
+<!--    <td>{{book.author}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Details</td>-->
+<!--    <td>{{book.detail}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Released Date</td>-->
+<!--    <td>{{book.date}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Price</td>-->
+<!--    <td>{{book.price}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Rate</td>-->
+<!--    <td>{{book.rating}}</td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Book Cover URL</td>-->
+<!--    <td>{{book.url}}</td>-->
+<!--  </tr>-->
+<!--</table>-->
+<!--<br><br>-->
+
+<a class="btn btn-small btn-warning" (click)="editProject()">edit</a>
+<a class="btn btn-small btn-danger" (click)="deleteProject()">delete</a>
+<!--</div>-->
