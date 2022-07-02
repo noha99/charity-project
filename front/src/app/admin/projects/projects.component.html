@@ -1,0 +1,44 @@
+<div class="container-fluid page">
+  <div class="page__box p-3 mt-2">Projects Admin</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data text-center">
+      <a class="btn btn-primary mb-3" (click)="addProject()"> <i class="fa fa-plus"> </i> Add New Project</a>
+
+      <p-table [value]="projects" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Info</th>
+          </tr>
+        </ng-template>
+        <ng-template let-project pTemplate="body">
+          <tr>
+            <td>{{project.id}}</td>
+            <td>{{project.title}}</td>
+            <td>{{project.category}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="viewProject(project.id)">Show Details</button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog [(visible)]="show"
+          (onHide)="cancel()"
+          [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+          [style]="{width: '50vw'}"
+          [transitionOptions]="'0ms'"
+          header="Project"
+>
+  <app-addproject *ngIf="action === 'edit' || action === 'add'" [project]="selectedProject" (projectAddedEvent)="refreshData()"></app-addproject>
+  <app-viewproject *ngIf="action === 'view'" [project]="selectedProject" (projectDeletedEvent)="refreshData()"></app-viewproject>
+
+</p-dialog>
+
+
+

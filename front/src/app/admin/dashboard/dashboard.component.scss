@@ -1,0 +1,113 @@
+.row{
+  justify-content: center;
+  margin: 2rem 0 ;
+}
+.col-sm-2{
+  display:flex;
+  border-radius: 15px;
+  margin: 0 1.5rem;
+width:20%;
+
+}
+
+i.overView{
+  font-size: 2.5rem;
+  margin: auto;
+  color:white;
+  padding:1rem;
+}
+span{
+ margin: auto;
+  text-align: center;
+  //width: 50%;
+}
+h1,h2,h4,h5 ,p{
+  color:white;
+  padding:.5rem;
+
+}
+h3,h6{
+  color: rgb(73, 80, 87);
+}
+p{
+  color: white;
+  font-size:25px;
+}
+
+///*------------------------------------------------------------------*/
+
+
+.page{
+  color: white;
+  padding:0 1rem;
+  background: #f1f5f9;
+  &__box{
+    border-radius: 10px;
+    min-height: 120px;
+    background: #1e293b;
+    margin:0 -1rem;
+    font-size:36px;
+   }
+  &__content{
+    min-height: calc(100vh - 178px);
+    border-radius:10px;
+    margin-top:-2rem;
+    background:white;
+    color:black;
+    font-size:2rem;
+    &_data{
+      top:50%;
+      left:50%;
+      transform:translate(-50% ,-50%);
+    }
+  }
+}
+
+///*------------------------------------------------------------------*/
+.content {
+  /* background-color: #eee; */
+  /* margin: auto; */
+  /* border-radius: 5px; */
+  /* width: auto; */
+  /* margin: 5px 10px; */
+  padding: 20px;
+}
+
+.row-size {
+  padding: 50px;
+
+}
+
+.card-body {
+  padding: 0rem 0rem;
+}
+
+.chart-size {
+  max-width: 50%;
+}
+
+.test {
+  margin: 50%;
+}
+
+.container-fluid {
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+//p {
+//  font-size: 0.875em;
+//  color: #777;
+//}
+
+a {
+  display: inline-block;
+  padding: 0.8em 1em 0.6em;
+
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+
+  background-color: #777;
+  color: #fff;
+}

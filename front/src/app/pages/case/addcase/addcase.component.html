@@ -1,0 +1,55 @@
+<form>
+  <label for="name">Case Name</label>
+  <input type="text" class="form-control" id="name" name="name" [(ngModel)]="casee.name" required>
+
+  <label for="description">Case Description</label>
+  <textarea class="form-control" id="description" rows="3" name="description" [(ngModel)]="casee.description">></textarea>
+
+  <label for="phone">Case Phone</label>
+  <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="casee.phone" required>
+
+  <label for="age">Case Age</label>
+  <input type="text" class="form-control" id="age" name="age" [(ngModel)]="casee.age" required>
+
+  <label for="gender">Case Gender</label>
+  <div style="width: 577px;">
+    <p-dropdown  id="gender" [options]="gender"
+                 [placeholder]="(casee.gender)?casee.gender:' '"
+                 (onChange)="onGenderChange($event)" >
+    </p-dropdown>
+  </div>
+
+  <label for="nationality">Case Nationality</label>
+  <div style="width: 577px;">
+    <p-dropdown  id="nationality" [options]="nationality.Nationality"
+                 [placeholder]="(casee.nationality)?casee.nationality:' '"
+                 (onChange)="onNationalityChange($event)" >
+    </p-dropdown>
+  </div>
+
+  <label for="reporterPhone">reporter Phone</label>
+  <input type="text" class="form-control" id="reporterPhone" name="reporterPhone" [(ngModel)]="casee.reporterPhone" required>
+
+  <label for="reporterName">reporterName</label>
+  <input type="text" class="form-control" id="reporterName" name="reporterName" [(ngModel)]="casee.reporterName">
+
+  <label for="reporterAdress">reporterAdress</label>
+  <input type="text" class="form-control" id="reporterAdress" name="reporterAdress" [(ngModel)]="casee.reporterAdress">
+
+
+  <br>
+
+  <span *ngIf="checked">
+    <p-message severity="error" text="{{msgs}}" (click)="checked=false ;"></p-message>
+  </span>
+  <span *ngIf="isExist">
+    <p-message severity="error" text="{{msgs}}" (click)="casee.name = '' ; isExist=false ;"></p-message>
+  </span>
+
+  <br>
+
+  <button #btn type="button" style=" margin-top: 10px;" class="btn btn-success" (click)="saveCase()">
+    <!--    <i *ngIf="clicked" class="pi pi-spin pi-spinner"></i>-->
+    Save Project
+  </button>
+</form>

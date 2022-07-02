@@ -1,0 +1,31 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSideMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="row mr-2 ml-auto">
+      <ul>
+        <li>
+          <span style=" display: flex">
+          <button mat-button class="user mt-2 d-flex align-items-center">
+            <img src="https://wallpapercave.com/wp/wp9280849.jpg" alt="account image" class="user-image mr-1 p-2">
+            Welcome {{_login.FullName }}
+<!--            <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>-->
+          </button>
+          <button mat-button class="user mt-2 d-flex align-items-center"
+                  (click)="HandleLogOut($event)">
+            <mat-icon>exit_to_app</mat-icon>
+            log out
+          </button>
+            </span>
+<!--          <mat-menu #menu=matMenu>-->
+<!--            <button mat-menu-item>-->
+<!--              <mat-icon>exit_to_app</mat-icon>-->
+<!--              logout-->
+<!--            </button>-->
+<!--          </mat-menu>-->
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

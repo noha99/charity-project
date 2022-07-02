@@ -1,0 +1,50 @@
+.content-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 5%;
+}
+.glob{
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.info{
+  padding: 0 25%;
+}
+
+label{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: outset;
+  background-color: #f7f7f7;
+  /*border-radius: 10px;*/
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10PX;
+  margin: 0 -20px;
+  padding: 5px;
+}
+
+.box{
+  /*padding: 0 15%;*/
+  margin-bottom: 50px;
+
+}
+
+.p-inputgroup{
+  width: 105%;
+}
+
+.submit{
+  /*padding: 0 45%;*/
+  margin: 30px 25%;
+  width: 50%;
+}
+
+.footer{
+  position: absolute;
+  left: 0;
+  right: 0;
+}
