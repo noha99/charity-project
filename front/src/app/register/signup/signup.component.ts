@@ -54,12 +54,22 @@ export class SignupComponent implements OnInit {
     }
     else{
       this.checked = false;
-      this.selectedUser =  this.users.find(u => u.email === this.user.email)!;
-      if(this.selectedUser){
-        this.isExist = true;
-        this.selectedUser = new User();
-        this.msgs = 'this email already exists';
+      if(this.users){
+        this.selectedUser =  this.users.find(u => u.email === this.user.email)!;
+        if(this.selectedUser){
+          this.isExist = true;
+          this.selectedUser = new User();
+          this.msgs = 'this email already exists';
 
+        }
+        else{
+          this.httpClientService.signUpUser(this.user).subscribe(
+            (user) => {
+              this.isSignup = true;
+              this.router.navigate(['home']);
+            }
+          );
+        }
       }
       else{
         this.httpClientService.signUpUser(this.user).subscribe(
@@ -69,6 +79,7 @@ export class SignupComponent implements OnInit {
           }
         );
       }
+
 
     }
     console.log(this.user);

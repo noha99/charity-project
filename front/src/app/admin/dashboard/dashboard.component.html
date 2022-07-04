@@ -15,6 +15,12 @@
                       <p>{{projsnum}}</p>
                     </span>
                 </div>
+                <div class="col-sm-2" style="background-color: dimgray">
+                    <span>
+                      <h5>Individual Cases </h5>
+                      <p>{{casesnum}}</p>
+                    </span>
+                </div>
                   <div class="col-sm-2" style="background-color: forestgreen">
                     <span>
                       <h5>Donations </h5>
@@ -24,9 +30,15 @@
                   <div class="col-sm-2" style="background-color: palevioletred">
                     <span>
                       <h5>Done Projects</h5>
-                    <p>{{done}}</p>
+                    <p>{{doneProjects}}</p>
                     </span>
                   </div>
+                <div class="col-sm-2" style="background-color: palevioletred">
+                    <span>
+                      <h5>Done Cases</h5>
+                    <p>{{doneCases}}</p>
+                    </span>
+                </div>
                   <div class="col-sm-2" style="background-color: #42a4f3">
                     <span>
                       <h5>Customers </h5>
@@ -58,15 +70,14 @@
             </div>
           </div>
         </p-tabPanel>
-<!--        <p-tabPanel header="sales" leftIcon="pi pi-percentage">-->
-<!--          Content 2-->
-<!--        </p-tabPanel>-->
-
 
         <p-tabPanel header="Projects' Donations" leftIcon="pi pi-dollar">
           <app-donations></app-donations>
         </p-tabPanel>
 
+        <p-tabPanel header="Cases' Donations" leftIcon="pi pi-dollar">
+          <app-all-cases></app-all-cases>
+        </p-tabPanel>
 
       </p-tabView>
 

@@ -39,6 +39,10 @@ export class ProjectinfoComponent implements OnInit {
         }
       }
     );
+    if(this.project.donation>=this.project.amountNeeded){
+      this.project.isDone=true;
+      this.projectService.updateProject(this.project).subscribe((d) => {});
+    }
   }
 
   toProjects() {

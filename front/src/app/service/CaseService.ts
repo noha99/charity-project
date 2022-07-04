@@ -18,6 +18,10 @@ export class CaseService {
     return this._httpClient.post<Case>('http://localhost:8888/cases/add', newCase);
   }
 
+  getCasesDonationList() {
+    return this._httpClient.get<any[]>('http://localhost:8888/cases/donations/get');
+  }
+
   deleteCase(id:any) {
     return this._httpClient.delete<Case>('http://localhost:8888/cases/' + id);
   }

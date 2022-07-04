@@ -10,23 +10,30 @@
   </div>
   <div class="product-list-item">
     <h1 class="product-name">{{project.title}}</h1>
-    <img [src]="project.image" [alt]="project.title">
+    <img class="image" [src]="project.image" [alt]="project.title">
     <div class="product-description">{{project.details}}</div>
 
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" [style.width]="percentage" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    <h3 class="product-price">{{project.place}}</h3>
+
+    <div *ngIf="!project.isDone">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" [style.width]="percentage" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-6" style="text-align: start;">
+          <span class="product-price">Donation = {{project.donation}} $</span>
+        </div>
+        <div class="col-6" style="text-align: end;">
+          <span class="product-price">AmountNeeded = {{project.amountNeeded}} $</span>
+        </div>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col-6" style="text-align: start;">
-        <span class="product-price">Donation = {{project.donation}} $</span>
-      </div>
-      <div class="col-6" style="text-align: end;">
-        <span class="product-price">AmountNeeded = {{project.amountNeeded}} $</span>
-      </div>
+    <div *ngIf="project.isDone">
+      <img class="correct" src="assets/correct.png">
     </div>
-    <h3 class="product-price">{{project.place}}</h3>
 
   </div>
 </div>
-<app-donate></app-donate>
+<app-donate *ngIf="!project.isDone" [projectId]="project.id"></app-donate>

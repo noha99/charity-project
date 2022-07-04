@@ -1,0 +1,63 @@
+
+<p-table [value]="cases" dataKey="title" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3rem"></th>
+        <th pSortableColumn="id">Code <p-sortIcon field="id"></p-sortIcon></th>
+        <th pSortableColumn="donation">Donation <p-sortIcon field="donation"></p-sortIcon></th>
+        <th>image</th>
+        <th pSortableColumn="amountNeeded">Amount Needed <p-sortIcon field="amountNeeded"></p-sortIcon></th>
+        <th pSortableColumn="rating">Place <p-sortIcon field="place"></p-sortIcon></th>
+        <th pSortableColumn="approved">Approved <p-sortIcon field="approved"></p-sortIcon></th>
+        <th pSortableColumn="isDone">isDone <p-sortIcon field="isDone"></p-sortIcon></th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-case let-expanded="expanded">
+      <tr>
+        <td>
+          <button type="button" pButton pRipple [pRowToggler]="case" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+        </td>
+        <td>{{case.id}}</td>
+        <td>{{case.donations}}</td>
+        <td><img [src]="case.image" [alt]="case.id" width="100" class="shadow-4" /></td>
+        <td>{{case.amountNeeded}}</td>
+        <td>{{case.governorate}}</td>
+        <td>{{case.approved}}</td>
+        <td>{{case.isDone}}</td>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-data>
+      <tr>
+        <td colspan="7">
+          <div class="p-3">
+            <p-table [value]="data.donations" dataKey="id">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                  <th pSortableColumn="name">Donor <p-sortIcon field="donor"></p-sortIcon></th>
+                  <!--                <th pSortableColumn="date">Amount <p-sortIcon field="date"></p-sortIcon></th>-->
+                  <th pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon></th>
+                  <th style="width: 4rem"></th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-donation>
+                <tr>
+                  <td>{{donation.id}}</td>
+                  <td>{{donation.donor}}</td>
+                  <!--                <td>{{donation.purchasedat}}</td>-->
+                  <td>{{donation.amount}}</td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="6">There are no donation for this project</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>

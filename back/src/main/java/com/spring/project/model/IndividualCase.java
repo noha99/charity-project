@@ -3,8 +3,8 @@ package com.spring.project.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "case")
-public class Case {
+@Table(name = "individualcase")
+public class IndividualCase {
 
   @Id
   @Column(name = "id")
@@ -41,10 +41,22 @@ public class Case {
   @Column(name = "reporterAdress")
   private String reporterAdress;
 
-  public Case() {
+  @Column(name = "amountNeeded")
+  private Long amountNeeded;
+
+  @Column(name = "donation")
+  private Long donation;
+
+  @Column(name = "approved")
+  private Boolean approved;
+
+  @Column(name = "isDone")
+  private Boolean isDone;
+
+  public IndividualCase() {
   }
 
-  public Case(Long id, String name, Long phone, Long age, String description, String gender, String governorate, String nationality, Long reporterPhone, String reporterName, String reporterAdress) {
+  public IndividualCase(Long id, String name, Long phone, Long age, String description, String gender, String governorate, String nationality, Long reporterPhone, String reporterName, String reporterAdress, Long amountNeeded, Long donation, Boolean approved, Boolean isDone) {
     this.id = id;
     this.name = name;
     this.phone = phone;
@@ -56,6 +68,10 @@ public class Case {
     this.reporterPhone = reporterPhone;
     this.reporterName = reporterName;
     this.reporterAdress = reporterAdress;
+    this.amountNeeded = amountNeeded;
+    this.donation = donation;
+    this.approved = approved;
+    this.isDone = isDone;
   }
 
   public Long getId() {
@@ -122,6 +138,22 @@ public class Case {
     this.nationality = nationality;
   }
 
+  public Long getAmountNeeded() {
+    return amountNeeded;
+  }
+
+  public void setAmountNeeded(Long amountNeeded) {
+    this.amountNeeded = amountNeeded;
+  }
+
+  public Long getDonation() {
+    return donation;
+  }
+
+  public void setDonation(Long donation) {
+    this.donation = donation;
+  }
+
   public Long getReporterPhone() {
     return reporterPhone;
   }
@@ -144,5 +176,21 @@ public class Case {
 
   public void setReporterAdress(String reporterAdress) {
     this.reporterAdress = reporterAdress;
+  }
+
+  public Boolean getApproved() {
+    return approved;
+  }
+
+  public void setApproved(Boolean approved) {
+    this.approved = approved;
+  }
+
+  public Boolean getDone() {
+    return isDone;
+  }
+
+  public void setDone(Boolean done) {
+    isDone = done;
   }
 }

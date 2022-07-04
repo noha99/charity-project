@@ -1,0 +1,48 @@
+<div class="container-fluid page">
+  <div class="page__box p-3 mt-2">Cases Admin</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data text-center">
+      <a class="btn btn-primary mb-3" (click)="addCase()"> <i class="fa fa-plus"> </i> Add New Case</a>
+
+      <p-table [value]="cases" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Nationality</th>
+            <th>Governorate</th>
+            <th>Amount Needed</th>
+            <th>Donation</th>
+            <th>Info</th>
+          </tr>
+        </ng-template>
+        <ng-template let-case pTemplate="body">
+          <tr>
+            <td>{{case.id}}</td>
+            <td>{{case.nationality}}</td>
+            <td>{{case.governorate}}</td>
+            <td>{{case.amountNeeded}}</td>
+            <td>{{case.donation}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="viewCase(case.id)">Show Details</button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+
+<p-dialog [(visible)]="show"
+          (onHide)="cancel()"
+          [breakpoints]="{'960px': '75vw', '640px': '100vw'}"
+          [style]="{width: '50vw'}"
+          [transitionOptions]="'0ms'"
+          header="Project"
+>
+  <app-addcase *ngIf="action === 'edit' || action === 'add'" [casee]="selectedCase" (caseAddedEvent)="refreshData()"></app-addcase>
+  <app-viewcase *ngIf="action === 'view'" [casee]="selectedCase" (caseDeletedEvent)="refreshData()"></app-viewcase>
+
+</p-dialog>
+
+
+

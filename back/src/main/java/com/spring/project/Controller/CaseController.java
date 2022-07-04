@@ -1,7 +1,7 @@
 package com.spring.project.Controller;
 
 import com.spring.project.Service.CaseRepository;
-import com.spring.project.model.Case;
+import com.spring.project.model.IndividualCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,8 @@ public class CaseController {
     private CaseRepository caseRepo;
 
     @GetMapping("/get")
-    public ResponseEntity<List<Case>> getCases() {
-        List<Case> caseList;
+    public ResponseEntity<List<IndividualCase>> getCases() {
+        List<IndividualCase> caseList;
         caseList = caseRepo.findAll();
         if (caseList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -29,7 +29,7 @@ public class CaseController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Case> createBook(@RequestBody Case newCase) {
+    public ResponseEntity<IndividualCase> createCase(@RequestBody IndividualCase newCase) {
         try {
             caseRepo.save(newCase);
             return new ResponseEntity<>(newCase, HttpStatus.CREATED);
@@ -40,7 +40,7 @@ public class CaseController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Case> updateBook(@RequestBody Case casee) {
+    public ResponseEntity<IndividualCase> updateCase(@RequestBody IndividualCase casee) {
         try {
             caseRepo.save(casee);
             return new ResponseEntity<>(casee, HttpStatus.OK);
@@ -50,9 +50,9 @@ public class CaseController {
     }
 
     @DeleteMapping(path = { "/{id}" })
-    public ResponseEntity<Case> deleteCase(@PathVariable("id") Long id) {
+    public ResponseEntity<IndividualCase> deleteCase(@PathVariable("id") Long id) {
         try {
-            Case cases = getCaseById(id);
+            IndividualCase cases = getCaseById(id);
             caseRepo.deleteById(id);
             return new ResponseEntity<>(cases, HttpStatus.OK);
         } catch (Exception e) {
@@ -60,8 +60,8 @@ public class CaseController {
         }
     }
 
-    public Case getCaseById(Long id) {
-        Optional<Case> caseData = caseRepo.findById(id);
+    public IndividualCase getCaseById(Long id) {
+        Optional<IndividualCase> caseData = caseRepo.findById(id);
         return caseData.orElse(null);
     }
 

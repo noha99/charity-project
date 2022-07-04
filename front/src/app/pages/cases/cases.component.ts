@@ -7,11 +7,11 @@ import {CaseService} from "../../service/CaseService";
 import {Project} from "../../model/Project";
 
 @Component({
-  selector: 'app-case',
-  templateUrl: './case.component.html',
-  styleUrls: ['./case.component.scss']
+  selector: 'app-cases',
+  templateUrl: './cases.component.html',
+  styleUrls: ['./cases.component.scss']
 })
-export class CaseComponent implements OnInit {
+export class CasesComponent implements OnInit {
   cases !: Case[];
 
   categories: SelectItem[] = [];
@@ -55,8 +55,14 @@ export class CaseComponent implements OnInit {
   }
 
   handleSuccessfulResponse(response: Case[] ) {
-    this.virtualDatabase = response;
-    this.totalRecords = response.length;
+    if(response){
+      let reslist:Array<Case> = [];
+      response.forEach(res=> (res.approved && !res.isDone)?reslist.push(res): reslist)
+      if(reslist){
+        this.virtualDatabase = reslist;
+        this.totalRecords = reslist.length;
+      }
+    }
   }
 
   applyFilterGlobal(event: Event, contains: string) {
@@ -81,6 +87,7 @@ export class CaseComponent implements OnInit {
 
   AddCase() {
     this.showAddCaseDialoge = true;
+    this.router.navigate(['pages','cases'] , {queryParams: {action: 'add'}});
   }
 
   cancel() {

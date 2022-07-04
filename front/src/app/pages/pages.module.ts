@@ -27,25 +27,28 @@ import {ListboxModule} from 'primeng/listbox';
 import {DonateComponent} from "../Components/donate/donate.component";
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectinfoComponent } from './projects/projectinfo/projectinfo.component';
-import { CaseComponent } from './case/case.component';
-import { CaseinfoComponent } from './case/caseinfo/caseinfo.component';
-import { AddcaseComponent } from './case/addcase/addcase.component';
+import { CasesComponent } from './cases/cases.component';
+import { CaseinfoComponent } from './cases/caseinfo/caseinfo.component';
+import { AddcaseComponent } from './cases/addcase/addcase.component';
 import {MessageModule} from "primeng/message";
 
 @NgModule({
-  declarations: [
-    PagesComponent,
-    HomeComponent,
-    DonationComponent,
-    HeaderComponent,
-    FooterComponent,
-    DonateComponent,
-    ProjectsComponent,
-    ProjectinfoComponent,
-    CaseComponent,
-    CaseinfoComponent,
-    AddcaseComponent
-  ],
+    declarations: [
+        PagesComponent,
+        HomeComponent,
+        DonationComponent,
+        HeaderComponent,
+        FooterComponent,
+        DonateComponent,
+        ProjectsComponent,
+        ProjectinfoComponent,
+        CasesComponent,
+        CaseinfoComponent,
+        AddcaseComponent
+    ],
+    exports: [
+        AddcaseComponent
+    ],
     imports: [
         CommonModule,
         PagesRoutingModule,

@@ -73,74 +73,77 @@
 }
 }
 
+.col-6{
+  text-align: center;
+}
 .product-list-item {
   display: flex;
   align-items: center;
   padding: 1rem;
   width: 100%;
 
-img {
-  width: 35%;
-  height: 200px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-right: 2rem;
-}
+  img {
+    width: 35%;
+    height: 200px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-right: 2rem;
+  }
 
-.product-list-detail {
-  flex: 1 1 0;
-}
+  .product-list-detail {
+    flex: 1 1 0;
+  }
 
-.p-rating {
-  margin: 0 0 .5rem 0;
-}
+  .p-rating {
+    margin: 0 0 .5rem 0;
+  }
 
-.product-price {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: .5rem;
-  align-self: flex-end;
-}
+  .product-price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+    align-self: flex-end;
+  }
 
-.product-list-action {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
+  .product-list-action {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
 
-.p-button {
-  margin-bottom: .5rem;
-}
+  .p-button {
+    margin-bottom: .5rem;
+  }
 
-.custom {
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 90%;
-  height: 100PX;
-}
+  .custom {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 100PX;
+  }
 
-.p-scrollpanel {
-p {
-  padding: .5rem;
-  line-height: 1.5;
-  margin: 0;
-}
+  .p-scrollpanel {
+    p {
+      padding: .5rem;
+      line-height: 1.5;
+      margin: 0;
+    }
 
-&.custom {
-.p-scrollpanel-wrapper {
-  border-right: 9px solid var(--layer-1);
-}
+    &.custom {
+      .p-scrollpanel-wrapper {
+        border-right: 9px solid var(--layer-1);
+      }
 
-.p-scrollpanel-bar {
-  background-color: #3fbeb3;
-  opacity: 1;
-  transition: background-color .2s;
+      .p-scrollpanel-bar {
+        background-color: #3fbeb3;
+        opacity: 1;
+        transition: background-color .2s;
 
-&:hover {
-   background-color: rgba(63, 190, 179, 0.73);
- }
-}
-}
-}
+        &:hover {
+          background-color: rgba(63, 190, 179, 0.73);
+        }
+      }
+    }
+  }
 }
 
 .product-grid-item {
