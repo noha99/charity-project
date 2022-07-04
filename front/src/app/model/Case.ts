@@ -7,9 +7,14 @@ export class Case {
   gender !: string;
   governorate !: string;
   nationality !: string
+  image !: string
 
   reporterPhone!: number;
   reporterName!: string;
   reporterAdress!: string;
 
+  amountNeeded !: number
+  donation !: number
+  approved!: boolean
+  isDone!: boolean
 }

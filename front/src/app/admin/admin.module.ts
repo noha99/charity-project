@@ -40,6 +40,9 @@ import { AddprojectComponent } from './projects/addproject/addproject.component'
 import { ViewprojectComponent } from './projects/viewproject/viewproject.component';
 import {DropdownModule} from "primeng/dropdown";
 import { DonationsComponent } from './dashboard/donations/donations.component';
+import { CasesComponent } from './cases/cases.component';
+import { AddcaseComponent } from './cases/addcase/addcase.component';
+import { ViewcaseComponent } from './cases/viewcase/viewcase.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +57,9 @@ import { DonationsComponent } from './dashboard/donations/donations.component';
     AddprojectComponent,
     ViewprojectComponent,
     DonationsComponent,
+    CasesComponent,
+    AddcaseComponent,
+    ViewcaseComponent,
 
   ],
   imports: [

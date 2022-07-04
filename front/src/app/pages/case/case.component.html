@@ -9,7 +9,8 @@
 
     <ng-template pTemplate="header">
       <div class="flex flex-column md:flex-row md:justify-content-between">
-        <button type="button" class="btn btn-info" (click)="AddCase()">Add Case</button>
+        <button type="button" class="btn btn-info" style="background-color: #3fbeb3; color: #fff"
+                (click)="AddCase()">Add Case</button>
 
         <span class="p-input-icon-left mb-2 md:mb-0">
           <i class="pi pi-search"></i>
@@ -23,14 +24,16 @@
     <ng-template let-case pTemplate="listItem">
       <div class="col-12">
         <div class="product-list-item">
-<!--          <img src="{{project.image}}" alt="{{project.title}}"/>-->
+          <img src="{{case.image}}" alt="{{case.id}}"/>
           <div (click)="showInfo(case.id)" class="product-list-detail">
-<!--            <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{project.category}}</span>-->
-            <div class="product-name">{{case.name}}</div>
+            <div class="product-name">{{case.id}}</div>
             <p-scrollPanel [style]="{ width: '100%', height: '150PX'}" styleClass="custom">
               <div class="product-description">{{case.description}}</div>
             </p-scrollPanel>
-<!--            <span class="product-price">{{case.service}}</span>-->
+            <div class="product-grid-item-bottom">
+              <span class="product-price">{{case.amountNeeded}}</span>
+              <span class="product-price">{{case.donation}}</span>
+            </div>
           </div>
           <div class="product-list-action">
 
@@ -43,15 +46,9 @@
     <ng-template let-case pTemplate="gridItem">
       <div  class="main col-12 md:col-4">
         <div class="product-grid-item card">
-          <div class="product-grid-item-top">
-<!--            <div>-->
-<!--              <i class="pi pi-tag product-category-icon"></i>-->
-<!--              <span class="product-category">{{project.category}}</span>-->
-<!--            </div>-->
-          </div>
+          <img [src]="case.image" [alt]="case.id" >
           <div class="product-grid-item-content">
-<!--            <img [src]="project.image" [alt]="project.title" >-->
-            <div (click)="showInfo(case.id)" class="product-name">{{case.name}}</div>
+            <div (click)="showInfo(case.id)" class="product-name">{{case.id}}</div>
 
             <p-scrollPanel [style]="{width: '100%', height: '100PX'}" styleClass="custom">
               <div class="product-description">{{case.description}}</div>
@@ -59,7 +56,8 @@
 
           </div>
           <div class="product-grid-item-bottom">
-<!--            <span class="product-price">{{case.service}}</span>-->
+            <span class="product-price">{{case.amountNeeded}}</span>
+            <span class="product-price">{{case.donation}}</span>
           </div>
         </div>
       </div>

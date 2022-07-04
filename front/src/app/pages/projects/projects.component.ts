@@ -43,8 +43,14 @@ export class ProjectsComponent implements OnInit {
   }
 
   handleSuccessfulResponse(response: Project[] ) {
-    this.virtualDatabase = response;
-    this.totalRecords = response.length;
+    if(response){
+      let reslist:any;
+      response.forEach(res=> (!res.isDone)?reslist.add(res): reslist)
+      if(reslist){
+        this.virtualDatabase = reslist;
+        this.totalRecords = reslist.length;
+      }
+    }
   }
 
   applyFilterGlobal(event: Event, contains: string) {

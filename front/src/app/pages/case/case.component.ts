@@ -55,8 +55,14 @@ export class CaseComponent implements OnInit {
   }
 
   handleSuccessfulResponse(response: Case[] ) {
-    this.virtualDatabase = response;
-    this.totalRecords = response.length;
+    if(response){
+      let reslist:any;
+      response.forEach(res=> (!res.approved && !res.isDone)?reslist.add(res): reslist)
+      if(reslist){
+        this.virtualDatabase = reslist;
+        this.totalRecords = reslist.length;
+      }
+    }
   }
 
   applyFilterGlobal(event: Event, contains: string) {
@@ -81,6 +87,7 @@ export class CaseComponent implements OnInit {
 
   AddCase() {
     this.showAddCaseDialoge = true;
+    this.router.navigate(['pages','cases'] , {queryParams: {action: 'add'}});
   }
 
   cancel() {
