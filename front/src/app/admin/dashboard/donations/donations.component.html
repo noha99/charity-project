@@ -8,7 +8,8 @@
       <th>image</th>
       <th pSortableColumn="amountNeeded">Amount Needed <p-sortIcon field="amountNeeded"></p-sortIcon></th>
       <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
-      <th pSortableColumn="rating">Place <p-sortIcon field="place"></p-sortIcon></th>
+      <th pSortableColumn="place">Place <p-sortIcon field="place"></p-sortIcon></th>
+      <th pSortableColumn="isDone">IsDne <p-sortIcon field="isDone"></p-sortIcon></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-project let-expanded="expanded">
@@ -22,6 +23,7 @@
       <td>{{project.amountNeeded}}</td>
       <td>{{project.category}}</td>
       <td>{{project.place}}</td>
+      <td>{{project.isDone}}</td>
     </tr>
   </ng-template>
   <ng-template pTemplate="rowexpansion" let-data>

@@ -18,6 +18,9 @@ public class Donation {
   @Column(name = "projectId")
   private Long projectId;
 
+  @Column(name = "caseId")
+  private Long caseId;
+
   @Column(name = "amount")
   private Long amount;
 
@@ -27,10 +30,11 @@ public class Donation {
   public Donation() {
   }
 
-  public Donation(Long id, String donor, Long projectId, Long amount, Long donor_account) {
+  public Donation(Long id, String donor, Long projectId, Long caseId, Long amount, Long donor_account) {
     this.id = id;
     this.donor = donor;
     this.projectId = projectId;
+    this.caseId = caseId;
     this.amount = amount;
     this.donor_account = donor_account;
   }
@@ -57,6 +61,14 @@ public class Donation {
 
   public void setProjectId(Long projectId) {
     this.projectId = projectId;
+  }
+
+  public Long getCaseId() {
+    return caseId;
+  }
+
+  public void setCaseId(Long caseId) {
+    this.caseId = caseId;
   }
 
   public Long getAmount() {

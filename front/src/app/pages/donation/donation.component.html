@@ -34,24 +34,26 @@
 
     <div *ngIf="first_step">
       <div class="row" style="margin: 0 17%;">
-        <div class="card box">
-          <label>Choose an amount to give</label>
-          <div style="margin: -1px -20px;" class="p-inputgroup">
-            <span class="p-inputgroup-addon">$</span>
-            <input type="text" pInputText placeholder="Amount" [(ngModel)]="Amount">
-          </div>
-        </div>
 
-        <div class="card">
+        <div class="card" *ngIf="donation.projectId == null && donation.caseId == null">
           <label>Select a project</label>
           <p-listbox [style.margin]="'-1px -20px'" [options]="projects" [(ngModel)]="selectedProject" [metaKeySelection]="false" [checkbox]="true" [filter]="true" optionLabel="name" >
             <ng-template let-project pTemplate="item">
               <div class="country-item">
-                <div>{{project.title}}</div>
+                <div>{{project.category}}</div>
               </div>
             </ng-template>
           </p-listbox>
         </div>
+
+        <div class="card box">
+          <label>Choose an amount to give</label>
+          <div style="margin: -1px -20px;" class="p-inputgroup">
+            <span class="p-inputgroup-addon">$</span>
+            <input type="number" pInputText placeholder="Amount" [(ngModel)]="donation.amount">
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -61,18 +63,23 @@
           <label>Enter your details</label>
           <div style="margin: -1px -20px;" class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="Name on Card" [(ngModel)]="Name">
+            <input type="text" pInputText placeholder="Name on Card" [(ngModel)]="donation.donor">
           </div>
           <div style="margin: -1px -20px;" class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-credit-card"></i></span>
-            <input type="text" pInputText placeholder="Card Number" [(ngModel)]="CardNum">
+            <input type="number" pInputText placeholder="Card Number" [(ngModel)]="donation.account">
           </div>
         </div>
       </div>
     </div>
 
-  <div class="submit">
-    <button pButton type="button" label="Donate" class="p-button-danger" style="width: 100%" (click)="(first_step)?handleFirstClick():handleClick()"></button>
+  <div class="row submit">
+    <button *ngIf="sec_step" pButton type="button" label="back" class="btn btn-info"
+            style="background-color:#3fbeb3; color:#fff; width: 100%"
+            (click)="handleback()"></button>
+
+    <button pButton type="button" label="Donate" class="p-button-danger" style="width: 100%"
+            (click)="(first_step)?handleFirstClick():handleClick()"></button>
   </div>
    <app-footer class="footer"></app-footer>
 </div>

@@ -29,7 +29,7 @@ public class DonationController {
   }
 
   @PostMapping("/add")
-  public ResponseEntity<Donation> createBook(@RequestBody Donation newDonation) {
+  public ResponseEntity<Donation> createDonation(@RequestBody Donation newDonation) {
     try {
       DonationRepo.save(newDonation);
       return new ResponseEntity<>(newDonation, HttpStatus.CREATED);
@@ -40,7 +40,7 @@ public class DonationController {
   }
 
   @PutMapping("/update")
-  public ResponseEntity<Donation> updateBook(@RequestBody Donation donation) {
+  public ResponseEntity<Donation> updateDonation(@RequestBody Donation donation) {
     try {
       DonationRepo.save(donation);
       return new ResponseEntity<>(donation, HttpStatus.OK);

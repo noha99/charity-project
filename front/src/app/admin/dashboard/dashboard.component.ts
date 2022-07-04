@@ -5,6 +5,8 @@ import {ProjectService} from "../../service/ProjectService";
 import {HttpClientService} from "../../service/http-client.service";
 import {DonationService} from "../../service/DonationService";
 import {User} from "../../model/User";
+import {Case} from "../../model/Case";
+import {CaseService} from "../../service/CaseService";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,6 +17,9 @@ export class DashboardComponent implements OnInit {
 
   projects: Project[] = [];
   projsnum:number = 0;
+
+  cases: Case[] = [];
+  casesnum:number = 0;
 
   donations: Donation[] = [];
   donationsnum:number = 0;
@@ -27,12 +32,14 @@ export class DashboardComponent implements OnInit {
   // basicOptions: any;
   receivedPaid: any;
 
-  done: any = 0;
+  doneProjects: any = 0;
+  doneCases: any = 0;
 
 
 
   constructor(private projectService: ProjectService,
               private httpClientService: HttpClientService,
+              private caseService: CaseService,
               private donationService: DonationService) {
   }
 
@@ -45,6 +52,17 @@ export class DashboardComponent implements OnInit {
         }
         else {
           this.donationsnum = 0;
+        }
+      }
+    );
+    this.caseService.getCasesList().subscribe(
+      response => {
+        this.cases = response;
+        if (this.cases) {
+          this.casesnum = this.cases.length;
+        }
+        else {
+          this.casesnum = 0;
         }
       }
     );
@@ -102,9 +120,11 @@ export class DashboardComponent implements OnInit {
       ]
     };
 
+    this.finished();
   }
 
   finished(){
-    this.projects.forEach(project => project.isDone? this.done++ : this.done);
+    this.projects.forEach(project => project.isDone? this.doneProjects++ : this.doneProjects);
+    this.cases.forEach(c => c.isDone? this.doneCases++ : this.doneCases);
   }
 }

@@ -40,9 +40,10 @@ import { AddprojectComponent } from './projects/addproject/addproject.component'
 import { ViewprojectComponent } from './projects/viewproject/viewproject.component';
 import {DropdownModule} from "primeng/dropdown";
 import { DonationsComponent } from './dashboard/donations/donations.component';
-import { CasesComponent } from './cases/cases.component';
-import { AddcaseComponent } from './cases/addcase/addcase.component';
-import { ViewcaseComponent } from './cases/viewcase/viewcase.component';
+import { CaseComponent } from './case/case.component';
+import { ViewcaseComponent } from './case/viewcase/viewcase.component';
+import {PagesModule} from "../pages/pages.module";
+import { AllCasesComponent } from './dashboard/all-cases/all-cases.component';
 
 @NgModule({
   declarations: [
@@ -57,9 +58,9 @@ import { ViewcaseComponent } from './cases/viewcase/viewcase.component';
     AddprojectComponent,
     ViewprojectComponent,
     DonationsComponent,
-    CasesComponent,
-    AddcaseComponent,
+    CaseComponent,
     ViewcaseComponent,
+    AllCasesComponent,
 
   ],
   imports: [
@@ -83,6 +84,7 @@ import { ViewcaseComponent } from './cases/viewcase/viewcase.component';
     MatIconModule,
     MatDividerModule, MatListModule, MatButtonModule, DialogModule, MessageModule,
     TableModule, RatingModule, ScrollPanelModule, DropdownModule,
+    PagesModule,
   ],
     exports: [
         AdminComponent,

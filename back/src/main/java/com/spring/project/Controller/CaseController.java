@@ -29,7 +29,7 @@ public class CaseController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<IndividualCase> createBook(@RequestBody IndividualCase newCase) {
+    public ResponseEntity<IndividualCase> createCase(@RequestBody IndividualCase newCase) {
         try {
             caseRepo.save(newCase);
             return new ResponseEntity<>(newCase, HttpStatus.CREATED);
@@ -40,7 +40,7 @@ public class CaseController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<IndividualCase> updateBook(@RequestBody IndividualCase casee) {
+    public ResponseEntity<IndividualCase> updateCase(@RequestBody IndividualCase casee) {
         try {
             caseRepo.save(casee);
             return new ResponseEntity<>(casee, HttpStatus.OK);

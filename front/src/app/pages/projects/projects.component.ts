@@ -44,8 +44,8 @@ export class ProjectsComponent implements OnInit {
 
   handleSuccessfulResponse(response: Project[] ) {
     if(response){
-      let reslist:any;
-      response.forEach(res=> (!res.isDone)?reslist.add(res): reslist)
+      let reslist:Array<Project>=[];
+      response.forEach(res=>(!res.isDone)?reslist.push(res): reslist)
       if(reslist){
         this.virtualDatabase = reslist;
         this.totalRecords = reslist.length;
